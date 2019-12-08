@@ -82,7 +82,7 @@ public class PlainCam1 extends HttpServlet {
 		int imgType = 1;	// initialize to defaults
 		int camNum = 1;
 		int botNum = 3;
-		String camAddr = "192.168.2.121";
+		String camAddr = "192.168.1.92";
 		String titleString ="- no idea which bot -";
 		Bot botx;
 		
@@ -97,16 +97,16 @@ public class PlainCam1 extends HttpServlet {
 			camNum = Integer.parseInt(arg);
 		}
 		if(camNum == 1){
-			camAddr = "192.168.2.121";
+			camAddr = "192.168.1.92";
 		}
 		if(camNum == 2){
-			camAddr = "192.168.2.122";
+			camAddr = "192.168.1.92";
 		}
 		if(camNum == 3){
-			camAddr = "192.168.2.123";
+			camAddr = "192.168.1.96";
 		}
 		if(camNum == 4){
-			camAddr = "192.168.2.124";
+			camAddr = "192.168.1.94";
 		}
 		
 		// pick the bot for symbology
@@ -122,7 +122,7 @@ public class PlainCam1 extends HttpServlet {
 		}
 		if(botNum == 7){
 			botx = shared.bot7;
-			titleString = "- Speedy 7 -";
+			titleString = "- Rover Seven -";
 		}
 		if(botNum == 9){
 			botx = shared.bot9;

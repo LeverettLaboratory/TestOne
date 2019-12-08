@@ -68,13 +68,13 @@ public class Bot7cmd extends HttpServlet implements Runnable{
 		int dataStateB = 0;
 		int dataFwdSpeedIndex = 0;
 		int dataTurnSpeedIndex = 0;
-		int dataClaw = 0;
+
+		int dataLamp = 0;
+		int dataBearing = 0;
+		int dataGrip = 0;
+		
 		int dataLastCommand = 0;
 		int dataLastData = 0;
-		int dataPitch = 0;
-		int dataRoll = 0;
-		int dataBearing = 0;
-		int dataRange = -1;
 				
 		
 		while (true) {
@@ -101,13 +101,13 @@ public class Bot7cmd extends HttpServlet implements Runnable{
 					dataStateB = dataIn.readInt();
 					dataFwdSpeedIndex = dataIn.readInt();
 					dataTurnSpeedIndex = dataIn.readInt();
-					dataClaw = dataIn.readInt();
+					
+					dataLamp = dataIn.readInt();
+					dataBearing = dataIn.readInt();
+					dataGrip = dataIn.readInt();
+					
 					dataLastCommand = dataIn.readInt();
 					dataLastData = dataIn.readInt();
-					dataPitch = dataIn.readInt();
-					dataRoll = dataIn.readInt();
-					dataBearing = dataIn.readInt();
-					dataRange = dataIn.readInt();
 					readOk = true;
 				} catch (IOException e) {
 					// An error reading data
@@ -129,13 +129,13 @@ public class Bot7cmd extends HttpServlet implements Runnable{
 					bot.setData("StateB", dataStateB);
 					bot.setData("FwdSpeedIndex", dataFwdSpeedIndex);
 					bot.setData("TurnSpeedIndex", dataTurnSpeedIndex);
-					bot.setData("Claw", dataClaw);
+
+					bot.setData("Lamp", dataLamp);
+					bot.setData("Bearing", dataBearing);
+					bot.setData("Grip", dataGrip);
+					
 					bot.setData("Command", dataLastCommand);
 					bot.setData("Data", dataLastData);
-					bot.setData("Pitch", dataPitch);
-					bot.setData("Roll", dataRoll);
-					bot.setData("Bearing", dataBearing);
-					bot.setData("Range", dataRange);
 
 				}
 			}else{
@@ -160,7 +160,7 @@ public class Bot7cmd extends HttpServlet implements Runnable{
 	protected synchronized void doGet(HttpServletRequest req,
 			HttpServletResponse res) throws ServletException, IOException {
 
-		// Possible arguements and default values
+		// Possible arguments and default values
 		String arg;
 		int command = 0;
 		int data1 = 0;
