@@ -68,12 +68,10 @@ public class Bot8cmd extends HttpServlet implements Runnable{
 		int dataFwdSpeedIndex = 0;
 		int dataTurnSpeedIndex = 0;
 		int dataClaw = 0;
+		int dataBearing = 0;
+		int dataLamp = 0;
 		int dataLastCommand = 0;
 		int dataLastData = 0;
-		int dataPitch = 0;
-		int dataRoll = 0;
-		int dataBearing = 0;
-		int dataRange = -1;
 				
 		
 		while (true) {
@@ -100,13 +98,13 @@ public class Bot8cmd extends HttpServlet implements Runnable{
 					dataStateB = dataIn.readInt();
 					dataFwdSpeedIndex = dataIn.readInt();
 					dataTurnSpeedIndex = dataIn.readInt();
+					
 					dataClaw = dataIn.readInt();
+					dataBearing = dataIn.readInt();
+					dataLamp = dataIn.readInt();
+					
 					dataLastCommand = dataIn.readInt();
 					dataLastData = dataIn.readInt();
-					dataPitch = dataIn.readInt();
-					dataRoll = dataIn.readInt();
-					dataBearing = dataIn.readInt();
-					dataRange = dataIn.readInt();
 					readOk = true;
 				} catch (IOException e) {
 					// An error reading data
@@ -129,12 +127,10 @@ public class Bot8cmd extends HttpServlet implements Runnable{
 					bot.setData("FwdSpeedIndex", dataFwdSpeedIndex);
 					bot.setData("TurnSpeedIndex", dataTurnSpeedIndex);
 					bot.setData("Claw", dataClaw);
+					bot.setData("Bearing", dataBearing);
+					bot.setData("Lamp", dataLamp);
 					bot.setData("Command", dataLastCommand);
 					bot.setData("Data", dataLastData);
-					bot.setData("Pitch", dataPitch);
-					bot.setData("Roll", dataRoll);
-					bot.setData("Bearing", dataBearing);
-					bot.setData("Range", dataRange);
 
 				}
 			}else{
