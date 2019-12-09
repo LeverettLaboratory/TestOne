@@ -69,7 +69,8 @@ public class ScanCam1 extends HttpServlet {
     
 	String botPreURL = "http://localhost/TestOne/Bot5cmd?";
 	String botPostURL = "&timestamp=";
-	
+	String camAddr = "192.168.1.92";
+			
 	Image logo32 = null;
 	Image logo64 = null;
     
@@ -114,6 +115,7 @@ public class ScanCam1 extends HttpServlet {
 		String arg;
 		int imgType = 1;	// initialize to defaults
 		int timeout = 300;
+//		String camAddr = "192.168.1.92";
 		
 		arg=req.getParameter("type");
 		if(arg!=null){
@@ -182,7 +184,7 @@ public class ScanCam1 extends HttpServlet {
 			// This is the raw image from the camera with no overlays and no rotation
 			
 			// Open a stream and read a still JPG image from the camera
-			URL camURL = new URL("http://192.168.2.122/jpg/image.jpg?resolution=640x480&compression=0&clock=0&date=0&text=0");
+			URL camURL = new URL("http://"+camAddr+"/jpg/image.jpg?resolution=640x480&compression=0&clock=0&date=0&text=0");
 
 			// TEST try a method that sets some timeouts on the connection so when battery runs down and camera stops
 			// responding it doesn't lock up the image.
@@ -200,7 +202,7 @@ public class ScanCam1 extends HttpServlet {
 		}else if (imgType == 1){
 			
 			// Open a stream and read a still JPG image from the camera
-			URL camURL = new URL("http://192.168.2.122/jpg/image.jpg?resolution=640x480&compression=0&clock=0&date=0&text=0");
+			URL camURL = new URL("http://"+camAddr+"/jpg/image.jpg?resolution=640x480&compression=0&clock=0&date=0&text=0");
 
 			// TEST try a method that sets some timeouts on the connection so when battery runs down and camera stops
 			// responding it doesn't lock up the image.
@@ -234,7 +236,9 @@ public class ScanCam1 extends HttpServlet {
 			g3.setFont(new Font("Times New Roman",Font.PLAIN,48));
 			g3.drawString("Leverett Laboratory", 130, 50);
 			g3.setFont(new Font("Times New Roman",Font.PLAIN,24));
-			g3.drawString("- Scan-o-rama Camera - ", 250, 80);
+			//g3.drawString("- Scan-o-rama Camera - ", 250, 80);			
+			g3.drawString("http://"+camAddr+"/jpg/image.jpg?resolution=640x480", 250, 80);
+
 	
 			// Status overlay		
 			g3.setPaint(Color.GREEN);
@@ -248,7 +252,7 @@ public class ScanCam1 extends HttpServlet {
 			// Half scale version of first image type
 			
 			// Open a stream and read a still JPG image from the camera 
-			URL camURL = new URL("http://192.168.2.122/jpg/image.jpg?resolution=320x240&compression=0&clock=0&date=0&text=0");
+			URL camURL = new URL("http://"+camAddr+"/jpg/image.jpg?resolution=320x240&compression=0&clock=0&date=0&text=0");
 			URLConnection camConnect = camURL.openConnection();
 			camConnect.setConnectTimeout(timeout);
 			camConnect.setReadTimeout(timeout);
@@ -291,7 +295,7 @@ public class ScanCam1 extends HttpServlet {
 		}else if (imgType==3){
 			
 			// Open a stream and read a still JPG image from the camera
-			URL camURL = new URL("http://192.168.2.122/jpg/image.jpg?resolution=640x480&compression=0&clock=0&date=0&text=0");
+			URL camURL = new URL("http://"+camAddr+"/jpg/image.jpg?resolution=640x480&compression=0&clock=0&date=0&text=0");
 
 			// sets some timeouts on the connection so when battery runs down and camera stops
 			// responding it doesn't lock up the image.
@@ -338,7 +342,7 @@ public class ScanCam1 extends HttpServlet {
 			// Image with overlays for the iPod
 			
 			// Open a stream and read a still JPG image from the camera
-			URL camURL = new URL("http://192.168.2.122/jpg/image.jpg?resolution=640x480&compression=0&clock=0&date=0&text=0");
+			URL camURL = new URL("http://"+camAddr+"/jpg/image.jpg?resolution=640x480&compression=0&clock=0&date=0&text=0");
 			URLConnection camConnect = camURL.openConnection();
 			camConnect.setConnectTimeout(500);
 			camConnect.setReadTimeout(1000);
@@ -405,7 +409,7 @@ public class ScanCam1 extends HttpServlet {
 		}else if (imgType==5){
 			
 			// Open a stream and read a still JPG image from the camera
-			URL camURL = new URL("http://192.168.2.122/jpg/image.jpg?resolution=640x480&compression=0&clock=0&date=0&text=0");
+			URL camURL = new URL("http://"+camAddr+"/jpg/image.jpg?resolution=640x480&compression=0&clock=0&date=0&text=0");
 			URLConnection camConnect = camURL.openConnection();
 			camConnect.setConnectTimeout(timeout);
 			camConnect.setReadTimeout(timeout);
@@ -470,7 +474,7 @@ public class ScanCam1 extends HttpServlet {
 			// Raw image
 			
 			// Open a stream and read a still JPG image from the camera
-			URL camURL = new URL("http://192.168.2.122/jpg/image.jpg?resolution=640x480&compression=0&clock=0&date=0&text=0");
+			URL camURL = new URL("http://"+camAddr+"/jpg/image.jpg?resolution=640x480&compression=0&clock=0&date=0&text=0");
 //			InputStream camIn = camURL.openStream();
 //			BufferedInputStream camInBuf = new BufferedInputStream(camIn);
 //			outImg = ImageIO.read(camInBuf);
@@ -490,7 +494,7 @@ public class ScanCam1 extends HttpServlet {
 			// For the panorama
 			
 			// Open a stream and read a still JPG image from the camera
-			URL camURL = new URL("http://192.168.2.122/jpg/image.jpg?resolution=640x480&compression=0&clock=0&date=0&text=0");
+			URL camURL = new URL("http://"+camAddr+"/jpg/image.jpg?resolution=640x480&compression=0&clock=0&date=0&text=0");
 			URLConnection camConnect = camURL.openConnection();
 			camConnect.setConnectTimeout(timeout);
 			camConnect.setReadTimeout(timeout);
