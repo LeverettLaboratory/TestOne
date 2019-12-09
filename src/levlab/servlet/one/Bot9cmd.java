@@ -67,11 +67,8 @@ public class Bot9cmd extends HttpServlet implements Runnable{
 		int dataStateB = 0;
 		int dataFwdSpeedIndex = 0;
 		int dataTurnSpeedIndex = 0;
-		int dataClaw = 0;
 		int dataLastCommand = 0;
 		int dataLastData = 0;
-		int dataBearing = 0;
-		int dataRange = -1;
 		
 		
 		while (true) {
@@ -90,15 +87,14 @@ public class Bot9cmd extends HttpServlet implements Runnable{
 					dataPowerA = dataIn.readInt();
 					dataPowerB = dataIn.readInt();
 					dataPowerC = dataIn.readInt();
+					
 					dataStateA = dataIn.readInt();
 					dataStateB = dataIn.readInt();
+					
 					dataFwdSpeedIndex = dataIn.readInt();
 					dataTurnSpeedIndex = dataIn.readInt();
-					dataClaw = dataIn.readInt();
 					dataLastCommand = dataIn.readInt();
 					dataLastData = dataIn.readInt();
-					dataBearing = dataIn.readInt();
-					dataRange = dataIn.readInt();
 					readOk = true;
 				} catch (IOException e) {
 					// An error reading data
@@ -116,15 +112,14 @@ public class Bot9cmd extends HttpServlet implements Runnable{
 					bot.setData("PowerA", dataPowerA);
 					bot.setData("PowerB", dataPowerB);
 					bot.setData("PowerC", dataPowerC);
+					
 					bot.setData("StateA", dataStateA);
 					bot.setData("StateB", dataStateB);
+					
 					bot.setData("FwdSpeedIndex", dataFwdSpeedIndex);
 					bot.setData("TurnSpeedIndex", dataTurnSpeedIndex);
-					bot.setData("Claw", dataClaw);
 					bot.setData("Command", dataLastCommand);
 					bot.setData("Data", dataLastData);
-					bot.setData("Bearing", dataBearing);
-					bot.setData("Range", dataRange);
 				}
 			}else{
 				// BT_NOT or BT_ERROR
