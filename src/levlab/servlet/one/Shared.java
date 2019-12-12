@@ -21,6 +21,7 @@ public class Shared {
 
     public Bot bot8 = new Bot("NXT4", "00:16:53:18:9B:E1");
     
+    public Bot bot1 = new Bot("NXT1", "00:16:53:0E:E7:41");
     
 
 }

@@ -11,6 +11,16 @@
   </welcome-file-list>
   <servlet>
     <description></description>
+    <display-name>Bot1cmd</display-name>
+    <servlet-name>Bot1cmd</servlet-name>
+    <servlet-class>levlab.servlet.one.Bot1cmd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Bot1cmd</servlet-name>
+    <url-pattern>/Bot1cmd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>Bot5cmd</display-name>
     <servlet-name>Bot5cmd</servlet-name>
     <servlet-class>levlab.servlet.one.Bot5cmd</servlet-class>
