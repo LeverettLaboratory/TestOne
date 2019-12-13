@@ -178,7 +178,7 @@ public class Bot1cmd extends HttpServlet implements Runnable{
 
 		// Check if BT link is up
 		if (bot.btState == Bot.BT_OK) {
-			// Bluetooh link is up
+			// Bluetooth link is up
 			if(command == 1){
 				// Status command, so return JSON encoded string
 				// to represent the contents of the bot hashMap
